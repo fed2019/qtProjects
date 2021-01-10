@@ -1,0 +1,12 @@
+ProductStyle:G23M
+TastMsg:BBB-GDBYT81OC-20004
+WorkstationName:气密性测试工站
+SampleTestPress:20
+SampleTestPressOffset:1
+LeakMax:150
+leakMin:50
+GasChargingTime:6
+PressStableTime:10
+TestTime:10
+PassNumber:10
+NGNumber:10
