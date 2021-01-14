@@ -7,13 +7,15 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
 
+RC_ICONS= favicon.ico
+
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
 # deprecated API in order to know how to port your code away from it.
 DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += DEBUG_MODE
-#DEFINES += MES_TEST
+DEFINES += MES_TEST
 
 # You can also make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -29,7 +31,8 @@ SOURCES += \
     gasTightManager/serial.c \
     main.cpp \
     mainwin.cpp \
-    para/Constant.cpp
+    para/Constant.cpp \
+    subwinsetting.cpp
 
 HEADERS += \
     MesManager/MesManager.h \
@@ -43,10 +46,12 @@ HEADERS += \
     gasTightManager/gastightmanager.h \
     gasTightManager/serial.h \
     mainwin.h \
-    para/Constant.h
+    para/Constant.h \
+    subwinsetting.h
 
 FORMS += \
-    mainwin.ui
+    mainwin.ui \
+    subwinsetting.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

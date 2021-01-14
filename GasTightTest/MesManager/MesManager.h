@@ -5,6 +5,18 @@
 #include <QNetworkRequest>
 #include <QNetworkReply>
 
+typedef struct MesRes
+{
+    bool is_ok;
+    QString errorInfo;
+}MESRES;
+
+enum OperationType :int
+{
+    CHECK_ROUTE = 0x01,
+    CREATE_ROUTE,
+};
+
 class MesManager : public QObject
 {
     Q_OBJECT
@@ -12,15 +24,20 @@ class MesManager : public QObject
 public:
     explicit MesManager(QObject *parent=nullptr);
     ~MesManager();
-    void post2Mes(const QString&,const QString&, const QString&, const QString&, const QString&);
-    void onReplayFinshed(QNetworkReply *reply);
+    /*过站检查*/
+    void checkRoute(const QString&, const QString&, const QString&);
+    /*结果上传MES*/
+    void createRoute(const QString&, const QString&, const QString&, const QString&);
+    void post2Mes(const QString &data);
+    void onCheckRouteReply();
+    void onCreateRouteReply();
+    void onReplyFinshed(QNetworkReply *reply);
 
 signals:
-    void resSingal(bool,QString errMsg);
+    void resSingal(OperationType,bool,QString errMsg);
 
 private:
     QNetworkAccessManager *mManager=nullptr;
-
 };
 
 #endif // MAINWIN_H

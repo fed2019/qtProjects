@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1180</width>
-    <height>786</height>
+    <height>802</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,7 +16,7 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_5">
     <item row="0" column="0">
-     <layout class="QHBoxLayout" name="horizontalLayout_31" stretch="3,1">
+     <layout class="QHBoxLayout" name="horizontalLayout_31" stretch="3">
       <item>
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
@@ -68,7 +68,7 @@ QGroupBox::title {
                <property name="font">
                 <font>
                  <family>Microsoft YaHei</family>
-                 <pointsize>12</pointsize>
+                 <pointsize>14</pointsize>
                 </font>
                </property>
                <property name="text">
@@ -81,46 +81,7 @@ QGroupBox::title {
                <property name="font">
                 <font>
                  <family>Microsoft YaHei</family>
-                 <pointsize>12</pointsize>
-                </font>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <spacer name="horizontalSpacer_8">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item>
-              <widget class="QLabel" name="label_taskPw">
-               <property name="font">
-                <font>
-                 <family>Microsoft YaHei</family>
-                 <pointsize>12</pointsize>
-                </font>
-               </property>
-               <property name="text">
-                <string>任务令：</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="label_taskPw_input">
-               <property name="font">
-                <font>
-                 <family>Microsoft YaHei</family>
-                 <pointsize>12</pointsize>
+                 <pointsize>14</pointsize>
                 </font>
                </property>
                <property name="text">
@@ -146,7 +107,7 @@ QGroupBox::title {
                <property name="font">
                 <font>
                  <family>Microsoft YaHei</family>
-                 <pointsize>12</pointsize>
+                 <pointsize>14</pointsize>
                 </font>
                </property>
                <property name="text">
@@ -159,7 +120,7 @@ QGroupBox::title {
                <property name="font">
                 <font>
                  <family>Microsoft YaHei</family>
-                 <pointsize>12</pointsize>
+                 <pointsize>14</pointsize>
                 </font>
                </property>
                <property name="text">
@@ -185,7 +146,7 @@ QGroupBox::title {
                <property name="font">
                 <font>
                  <family>Microsoft YaHei</family>
-                 <pointsize>12</pointsize>
+                 <pointsize>14</pointsize>
                 </font>
                </property>
                <property name="text">
@@ -198,7 +159,7 @@ QGroupBox::title {
                <property name="font">
                 <font>
                  <family>Microsoft YaHei</family>
-                 <pointsize>12</pointsize>
+                 <pointsize>14</pointsize>
                 </font>
                </property>
                <property name="text">
@@ -224,7 +185,7 @@ QGroupBox::title {
                <property name="font">
                 <font>
                  <family>Microsoft YaHei</family>
-                 <pointsize>12</pointsize>
+                 <pointsize>14</pointsize>
                 </font>
                </property>
                <property name="text">
@@ -237,7 +198,7 @@ QGroupBox::title {
                <property name="font">
                 <font>
                  <family>Microsoft YaHei</family>
-                 <pointsize>12</pointsize>
+                 <pointsize>14</pointsize>
                 </font>
                </property>
                <property name="text">
@@ -254,7 +215,7 @@ QGroupBox::title {
              <enum>Qt::Horizontal</enum>
             </property>
             <property name="sizeType">
-             <enum>QSizePolicy::Minimum</enum>
+             <enum>QSizePolicy::Expanding</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
@@ -301,7 +262,7 @@ QGroupBox::title {
                <property name="font">
                 <font>
                  <family>Microsoft YaHei</family>
-                 <pointsize>12</pointsize>
+                 <pointsize>14</pointsize>
                 </font>
                </property>
                <property name="text">
@@ -314,7 +275,7 @@ QGroupBox::title {
                <property name="font">
                 <font>
                  <family>Microsoft YaHei</family>
-                 <pointsize>12</pointsize>
+                 <pointsize>14</pointsize>
                 </font>
                </property>
                <property name="text">
@@ -341,132 +302,6 @@ QGroupBox::title {
          </layout>
         </item>
        </layout>
-      </item>
-      <item>
-       <widget class="QGroupBox" name="groupBox_A_workInfo_3">
-        <property name="styleSheet">
-         <string notr="true">QGroupBox {
-    font: bold; 
-    border: 1px solid black;
-    border-radius: 3px;
-    margin-top: 10px;
-}
-QGroupBox::title {
-    subcontrol-origin:  margin;
-    subcontrol-position: top left;    // for second image:  top; 
-    padding: 10px 10px;
-}
-</string>
-        </property>
-        <property name="title">
-         <string>工站信息</string>
-        </property>
-        <layout class="QGridLayout" name="gridLayout_4">
-         <item row="2" column="0">
-          <widget class="QPushButton" name="btn_lock">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="font">
-            <font>
-             <family>Microsoft YaHei</family>
-             <pointsize>12</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>锁定</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0">
-          <layout class="QHBoxLayout" name="horizontalLayout_30" stretch="1,4">
-           <item>
-            <widget class="QLabel" name="label_stationNo">
-             <property name="font">
-              <font>
-               <family>Microsoft YaHei</family>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>站位编号：</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLineEdit" name="lineEdit_stationNo">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>350</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <family>Microsoft YaHei</family>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item row="0" column="0">
-          <layout class="QHBoxLayout" name="horizontalLayout_27" stretch="1,4">
-           <item>
-            <widget class="QLabel" name="label_prodNo">
-             <property name="font">
-              <font>
-               <family>Microsoft YaHei</family>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>   工单号：</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLineEdit" name="lineEdit_prodNo">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>350</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <family>Microsoft YaHei</family>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-        </layout>
-       </widget>
       </item>
      </layout>
     </item>
@@ -535,7 +370,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -548,7 +383,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -565,7 +400,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -578,7 +413,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -618,7 +453,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -631,8 +466,11 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
+                </property>
+                <property name="text">
+                 <string/>
                 </property>
                </widget>
               </item>
@@ -645,7 +483,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -658,7 +496,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                </widget>
@@ -695,7 +533,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -711,7 +549,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -728,7 +566,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -744,7 +582,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -761,7 +599,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -777,7 +615,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -794,7 +632,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -810,7 +648,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -827,7 +665,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -843,7 +681,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -860,7 +698,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="value">
@@ -876,7 +714,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -896,7 +734,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -909,7 +747,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -925,7 +763,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -938,7 +776,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -954,7 +792,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -971,7 +809,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -987,7 +825,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1004,7 +842,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1020,7 +858,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1032,10 +870,16 @@ QGroupBox::title {
             </item>
             <item row="10" column="0">
              <widget class="QLabel" name="label_hintInfo_input_A">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
               <property name="font">
                <font>
                 <family>Microsoft YaHei</family>
-                <pointsize>12</pointsize>
+                <pointsize>14</pointsize>
                </font>
               </property>
               <property name="text">
@@ -1043,6 +887,9 @@ QGroupBox::title {
               </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
+              </property>
+              <property name="wordWrap">
+               <bool>true</bool>
               </property>
              </widget>
             </item>
@@ -1131,7 +978,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1144,7 +991,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1161,7 +1008,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1174,7 +1021,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1214,7 +1061,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1227,7 +1074,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                </widget>
@@ -1241,7 +1088,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1254,7 +1101,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                </widget>
@@ -1291,7 +1138,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1307,7 +1154,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1324,7 +1171,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1340,7 +1187,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1357,7 +1204,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1373,7 +1220,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1390,7 +1237,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1406,7 +1253,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1423,7 +1270,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1439,7 +1286,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1456,7 +1303,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="value">
@@ -1472,7 +1319,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1492,7 +1339,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1505,7 +1352,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1521,7 +1368,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1534,7 +1381,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1550,7 +1397,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1567,7 +1414,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1583,7 +1430,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1600,7 +1447,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1616,7 +1463,7 @@ QGroupBox::title {
                 <property name="font">
                  <font>
                   <family>Microsoft YaHei</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -1631,7 +1478,7 @@ QGroupBox::title {
               <property name="font">
                <font>
                 <family>Microsoft YaHei</family>
-                <pointsize>12</pointsize>
+                <pointsize>14</pointsize>
                </font>
               </property>
               <property name="text">
@@ -1639,6 +1486,9 @@ QGroupBox::title {
               </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
+              </property>
+              <property name="wordWrap">
+               <bool>true</bool>
               </property>
              </widget>
             </item>
@@ -1693,8 +1543,50 @@ QGroupBox::title {
      <height>23</height>
     </rect>
    </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>30</verstretch>
+    </sizepolicy>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>140</width>
+      <height>80</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="title">
+     <string>设置</string>
+    </property>
+    <addaction name="action_shuxin"/>
+    <addaction name="separator"/>
+   </widget>
+   <addaction name="menu"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="action_shuxin">
+   <property name="text">
+    <string>属性设置</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>3ds</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

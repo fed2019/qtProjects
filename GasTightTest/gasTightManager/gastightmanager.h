@@ -53,6 +53,9 @@ public:
     void readTestLeakData();//读取泄漏值,测试阶段读取
     void readTestResult();//读取测试结果,循环读取,直到结果为0K或者NG或者连续读取失败
     void readProgressTime();//读取测试过程各阶段花费时间,将结果拼接成字符串返回,若读取失败,则返回空字符
+    static QString getTestStateName(const TestState);
+    static QString getDataTypeName(const DataType);
+    static QString getResultTypeName(const ResultType);
 
 signals:
 

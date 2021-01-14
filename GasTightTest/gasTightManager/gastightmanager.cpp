@@ -39,9 +39,7 @@ void GasTightManager::registerCallBack(std::shared_ptr<GasTightCallBack> callBac
 {
     if(mCallBackPtr==nullptr&&callBackPtr!=nullptr)
     {
-        qDebug()<<"before accept,the use count:"<<mCallBackPtr.use_count();
         mCallBackPtr=callBackPtr;
-        qDebug()<<"after accept,the use count:"<<mCallBackPtr.use_count();
     }
 }
 
@@ -64,7 +62,6 @@ void GasTightManager::checkMachineState()
                 mMux.lock();
                 int ret=checkIsMachineFree(mGasObjPtr);
                 mMux.unlock();
-                LOG<<"begine to check is machine free,"<<"ret is:"<<ret;
                 if(ret==1)
                 {
                     TestState state=TestState::FREE;
@@ -87,7 +84,10 @@ void GasTightManager::checkMachineState()
                             isTesting=false;
                             TestState state2=TestState::COMPLETE;
                             if(mCallBackPtr) mCallBackPtr->mTestStateCallBack(mCallBackPtr->callBackFlag,state2);
+                            readProgressTime();
+                            break;
                         }
+                        readTestProgress();
                         Sleep(100);
                     }
                 }
@@ -99,36 +99,24 @@ void GasTightManager::checkMachineState()
 
 void GasTightManager::readTestProgress()
 {
-    if(mGasObjPtr)
+    int a=0,b=100;
+    int *fenzi=&a;
+    int *fenmu=&b;
+    mMux.lock();
+    int ret=swft_gastight_progress_read(mGasObjPtr, fenzi, fenmu);
+    mMux.unlock();
+    LOG<<"return:"<<ret<<"test progress,fenzi:"<<*fenzi<<",fenmu:"<<*fenmu;
+    if(ret!=1)//测试进度读取失败,回调值为-1
     {
-        mProgressCheckThread.post([=](){
-            int a=0,b=100;
-            int *fenzi=&a;
-            int *fenmu=&b;
-            while(*fenzi<*fenmu)
-            {
-                mMux.lock();
-                int ret=swft_gastight_progress_read(mGasObjPtr, fenzi, fenmu);
-                mMux.unlock();
-                if(ret!=1)//测试进度读取失败,回调值为-1
-                {
-                    float progress=-1.0;
-                    if(mCallBackPtr) mCallBackPtr->mProgressCallBack(mCallBackPtr->callBackFlag,progress);
-                    break;
-                }
-                else
-                {
-                    try {
-                        float progress=(*fenzi)/(*fenmu);
-                        if(mCallBackPtr) mCallBackPtr->mProgressCallBack(mCallBackPtr->callBackFlag,progress);
-                    } catch (...) {
-                        qWarning()<<"fail in get progress";
-                    }
-                }
-                LOG<<"test progress,fenzi:"<<*fenzi<<",fenmu:"<<*fenmu;
-                Sleep(100);
-            }
-        });
+        int progress=-1;
+        if(mCallBackPtr) mCallBackPtr->mProgressCallBack(mCallBackPtr->callBackFlag,progress);
+    }
+    else
+    {
+        if(*fenmu>0){
+            int progress=(*fenzi)*100/(*fenmu);
+            if(mCallBackPtr) mCallBackPtr->mProgressCallBack(mCallBackPtr->callBackFlag,progress);
+        }
     }
 }
 
@@ -217,12 +205,32 @@ void GasTightManager::readTestLeakData()
     }
 }
 
+void GasTightManager::readProgressTime()
+{
+    int a,b,c=0;
+    int *pinflate_time=&a;
+    int *pholding_time=&b;
+    int *ptest_time=&c;
+    mMux.lock();
+    int ret=swft_gastight_process_time_read(mGasObjPtr,pinflate_time,pholding_time,ptest_time);
+    mMux.unlock();
+    if(ret==1&&mCallBackPtr)
+    {
+         mCallBackPtr->mProgressTimeCallBack(mCallBackPtr->callBackFlag,*pinflate_time,*pholding_time,*ptest_time);
+    }
+    if(ret<1&&mCallBackPtr)
+    {
+         int jinqi,wenya,ceshi=0.0f;
+         mCallBackPtr->mProgressTimeCallBack(mCallBackPtr->callBackFlag,jinqi,wenya,ceshi);
+    }
+}
+
 void GasTightManager::readTestResult()
 {
     if(mGasObjPtr)
     {
         mResultGettingThread.post([=](){
-            unsigned char *result=nullptr;
+            unsigned char result[200];
             bool keepReading=true;
             int retryTimes=0;
             while (keepReading&&retryTimes<4)
@@ -231,7 +239,7 @@ void GasTightManager::readTestResult()
                 int ret=swft_gastight_result_read(mGasObjPtr, result);
                 mMux.unlock();
                 LOG<<"ret:"<<ret<<",result:"<<*result;
-                if(ret==1&&mCallBackPtr)
+                if(ret==1&&mCallBackPtr&&sizeof (result)>0)
                 {
                     switch (*result)
                     {
@@ -239,7 +247,7 @@ void GasTightManager::readTestResult()
                             mCallBackPtr->mResultCallBack(mCallBackPtr->callBackFlag,ResultType::JIGU_INSTALL);
                             break;
                         case 0x02:
-                            mCallBackPtr->mResultCallBack(mCallBackPtr->callBackFlag,ResultType::JINQI);
+                           mCallBackPtr->mResultCallBack(mCallBackPtr->callBackFlag,ResultType::JINQI);
                             break;
                         case 0x03:
                             mCallBackPtr->mResultCallBack(mCallBackPtr->callBackFlag,ResultType::WENYA);
@@ -264,36 +272,56 @@ void GasTightManager::readTestResult()
                     if(retryTimes==3&&mCallBackPtr) mCallBackPtr->mResultCallBack(mCallBackPtr->callBackFlag,ResultType::RESULT_READ_FAIL);
                     retryTimes++;
                 }
-                Sleep(50);
+                Sleep(100);
             }
         });
     }
 }
 
-void GasTightManager::readProgressTime()
+QString GasTightManager::getTestStateName(const TestState testState)
 {
-    if(mGasObjPtr)
-    {
-        mResultGettingThread.post([=](){
-            int a,b,c=0;
-            int *pinflate_time=&a;
-            int *pholding_time=&b;
-            int *ptest_time=&c;
-            mMux.lock();
-            int ret=swft_gastight_process_time_read(mGasObjPtr,pinflate_time,pholding_time,ptest_time);
-            mMux.unlock();
-            if(ret==1&&mCallBackPtr)
-            {
-                float jinqi=*pinflate_time/10;
-                float wenya=*pholding_time/10;
-                float ceshi=*ptest_time/10;
-                mCallBackPtr->mProgressTimeCallBack(mCallBackPtr->callBackFlag,jinqi,wenya,ceshi);
-            }
-            if(ret<1&&mCallBackPtr)
-            {
-                float jinqi,wenya,ceshi=0.0f;
-                mCallBackPtr->mProgressTimeCallBack(mCallBackPtr->callBackFlag,jinqi,wenya,ceshi);
-            }
-        });
+    switch (testState) {
+    case TestState::FREE:
+        return QString("free");
+    case TestState::START:
+        return QString("start");
+    case TestState::TESTING:
+        return QString("testing");
+    case TestState::COMPLETE:
+        return QString("complete");
+    }
+}
+
+QString GasTightManager::getDataTypeName(const DataType type)
+{
+    switch (type) {
+    case DataType::LEAK_SPEED:
+        return QString("leak speed");
+    case DataType::LEAK_VALUE:
+        return QString("leak value");
+    case DataType::TEST_PRESS_VALUE:
+        return QString("test press value");
+    case DataType::CURRENT_PRESS_VALUE:
+        return QString("current press value");
+    }
+}
+
+QString GasTightManager::getResultTypeName(const ResultType type)
+{
+    switch (type) {
+    case ResultType::TEST:
+        return QString("test");
+    case ResultType::JINQI:
+        return QString("jinqi");
+    case ResultType::WENYA:
+        return QString("wenya");
+    case ResultType::JIGU_INSTALL:
+        return QString("install jigu");
+    case ResultType::RESULT_OK:
+        return  QString("result ok");
+    case ResultType::RESULT_NG:
+        return QString("result NG");
+    case ResultType::RESULT_READ_FAIL:
+        return QString("result read fail");
     }
 }

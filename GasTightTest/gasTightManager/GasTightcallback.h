@@ -21,10 +21,10 @@ public:
 //        callBackFlag=callback.callBackFlag;
 //    }
     function<void (const std::string,TestState &)> mTestStateCallBack=[](const std::string &,TestState &){};
-    function<void (const std::string,float &)> mProgressCallBack=[](const std::string &,float &){};
+    function<void (const std::string,int &)> mProgressCallBack=[](const std::string &,int &){};
     function<void (const std::string,DataType,int &)> mDataCallBack=[](const std::string &,DataType,int &){};
     function<void (const std::string,ResultType)> mResultCallBack=[](const std::string &,ResultType){};
-    function<void (const std::string,const float & ,const float & ,const float &)> mProgressTimeCallBack=[](const std::string,const float & ,const float & ,const float &){};
+    function<void (const std::string,const int & ,const int & ,const int &)> mProgressTimeCallBack=[](const std::string,const int & ,const int & ,const int &){};
     std::string callBackFlag;
 };
 

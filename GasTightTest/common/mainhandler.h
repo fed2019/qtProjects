@@ -16,7 +16,7 @@ public:
     explicit MainHandler(QObject *parent = nullptr);
     ~MainHandler();
     static MainHandler* getInstance() ;//使用但实例,跟调用类无关
-    void runOnMainThread(std::function<void()> func);
+    void runOnMainThread(QObject *,std::function<void()> func);
 
 private:
     QMutex mMutex;

@@ -18,13 +18,13 @@ MainHandler *MainHandler::getInstance()
     return &instance;
 }
 
-void MainHandler::runOnMainThread(std::function<void ()> func)
+void MainHandler::runOnMainThread(QObject *obj,std::function<void ()> func)
 {
-    mMutex.lock();//防止连接多个lambda函数，阻塞线程!
-    connect(this, &MainHandler::run, this, [&, func]() {
+    //mMutex.lock();//防止连接多个lambda函数，阻塞线程!
+    connect(this, &MainHandler::run,obj ,[&, func]() {
         func();
         disconnect();
-        mMutex.unlock();
-    }, Qt::QueuedConnection);
+        //mMutex.unlock();
+    },Qt::QueuedConnection);
     emit run();
 }

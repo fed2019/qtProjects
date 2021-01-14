@@ -64,7 +64,7 @@ static inline char* bin2str(const unsigned char* bin, int blen, char *buf, int s
  */
 static inline int gastight_exec(swft_gastight_t* pgt, const unsigned char* cmd_buf, int cmd_len, unsigned char* res_buf, int res_len, const char* func, int line)
 {
-	int r, len;
+    int r=0, len;
 	len = swft_serial_write(pgt->serial, cmd_buf, cmd_len);
 	if (len != cmd_len)
 		return -1;
@@ -75,8 +75,8 @@ static inline int gastight_exec(swft_gastight_t* pgt, const unsigned char* cmd_b
 		char cmd_buf_str[64], res_buf_str[64];
 		bin2str(cmd_buf, cmd_len, cmd_buf_str, sizeof(cmd_buf_str));
 		bin2str(res_buf, len, res_buf_str, sizeof(res_buf_str));
-		printf("<%d> %s:%d cmd_buf[%d]: %s, res_buf[%d]: %s, r = %x\n", pgt->channel_idx, func, line, cmd_len, cmd_buf_str, len, res_buf_str, r);
-		if (r == 0)
+        //printf("<%d> %s:%d cmd_buf[%d]: %s, res_buf[%d]: %s, r = %x\n", pgt->channel_idx, func, line, cmd_len, cmd_buf_str, len, res_buf_str, r);
+        if (r == 0)
 			return len;
 	}
 	return -1;
@@ -190,17 +190,22 @@ int checkIsTestOver(swft_gastight_t* pgt)
     while (1)
     {
         r = gastight_exec(pgt, query_over_cmd, sizeof(query_over_cmd), buf, sizeof(buf), __FUNCTION__, __LINE__);
+        //printf("r=%d,size of status1=%d,compare=%d\n",r,sizeof(over_status_1),memcmp(over_status_1, buf, r));
         if (r == -1)
         {
             if (++err_cnt >= 3) return -1;
         }
-        else if (!(r == sizeof(over_status_1) && !memcmp(over_status_1, buf, r))||!(r == sizeof(over_status_2) && !memcmp(over_status_2, buf, r)))
+        else if((r == sizeof(over_status_1) && !memcmp(over_status_1, buf, r)))
         {
-            if (++nok_cnt >= 3) return 0;
+            return 1;
+        }
+        else if((r == sizeof(over_status_2) && !memcmp(over_status_2, buf, r)))
+        {
+            return 1;
         }
         else
         {
-            return 1;
+            if (++nok_cnt >= 3) return 0;
         }
         Sleep(10);
     }
